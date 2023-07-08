@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "event-manager-b65d6": {
+      "hosting": {
+        "event-manager": [
+          "event-manager-b65d6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "event-manager-b65d6"
+  }
+}
