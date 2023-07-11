@@ -3,19 +3,21 @@
      <mat-icon>menu</mat-icon>
    </button>
    <span id="menu-title">Event Manager</span>
-   <a mat-button routerLink="/" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
-   <a mat-button routerLink="/" class="top-menu-item"><mat-icon>person</mat-icon>Profile</a>
-   <a mat-button routerLink="/" class="top-menu-item"><mat-icon>chat</mat-icon>Chat</a>
-   <a mat-button routerLink="/" class="top-menu-item"><mat-icon>login</mat-icon>Register</a>
+   <a mat-button routerLink="main" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
+   <a mat-button routerLink="profile" class="top-menu-item"><mat-icon>person</mat-icon>Profile</a>
+   <a mat-button routerLink="chat" class="top-menu-item"><mat-icon>chat</mat-icon>Chat</a>
+   <a mat-button routerLink="shop" class="top-menu-item"><mat-icon>shopping_cart</mat-icon>Shop</a>
+   <a mat-button routerLink="register" class="top-menu-item"><mat-icon>login</mat-icon>Register</a>
  </mat-toolbar>
 
  <mat-sidenav-container>
     <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
         <div class="side-nav-items">
-        <div><a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item"><mat-icon>home</mat-icon>Home</a></div>
-        <div><a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item"><mat-icon>person</mat-icon>Profile</a></div>
-        <div><a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item"><mat-icon>chat</mat-icon>Chat</a></div>
-        <div><a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item"><mat-icon>login</mat-icon>Register</a></div>
+        <div><a (click)="sidenav.close()" mat-button routerLink="main" class="side-menu-item"><mat-icon>home</mat-icon>Home</a></div>
+        <div><a (click)="sidenav.close()" mat-button routerLink="profile" class="side-menu-item"><mat-icon>person</mat-icon>Profile</a></div>
+        <div><a (click)="sidenav.close()" mat-button routerLink="chat" class="side-menu-item"><mat-icon>chat</mat-icon>Chat</a></div>
+        <div><a (click)="sidenav.close()" mat-button routerLink="shop" class="side-menu-item"><mat-icon>shopping_cart</mat-icon>Shop</a></div>
+        <div><a (click)="sidenav.close()" mat-button routerLink="register" class="side-menu-item"><mat-icon>login</mat-icon>Register</a></div>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>

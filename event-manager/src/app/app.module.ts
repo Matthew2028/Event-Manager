@@ -21,6 +21,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import { ShopComponent } from './app/shared/components/shop/shop.component';
+import { ChatComponent } from './app/shared/components/chat/chat.component';
+import { ProfileComponent } from './app/shared/components/profile/profile.component';
+import { RegisterComponent } from './app/shared/components/register/register.component';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    ShopComponent,
+    ChatComponent,
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
