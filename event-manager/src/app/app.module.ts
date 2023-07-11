@@ -6,10 +6,22 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './app/shared/components/navbar/navbar.component';
 import { FooterComponent } from './app/shared/components/footer/footer.component';
 import { MainComponent } from './app/shared/components/main/main.component';
+
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { FirebaseService } from './services/firebase.service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Angular Materials
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -23,9 +35,15 @@ import { AngularFireModule } from '@angular/fire/compat';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
