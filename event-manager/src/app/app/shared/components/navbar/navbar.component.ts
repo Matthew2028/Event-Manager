@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/app/services/firebase.service';
 
@@ -9,34 +9,24 @@ import { FirebaseService } from 'src/app/app/services/firebase.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public show:boolean = false;
-  isFixedNavbar: any;
-  @HostBinding('class.navbar-opened') navbarOpened = false;
-
-  opened = false;
-
+  @Output() isLogout = new EventEmitter<void>()
   constructor(public firebaseService: FirebaseService, private router: Router) {}
 
   ngOnInit(): void {
   }
   
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if(offset > 10) {
-      this.isFixedNavbar = true;
-    } else {
-      this.isFixedNavbar = false;
-    }
-  }
-
-  toggleNavbar() {
-    this.navbarOpened = !this.navbarOpened;
-  }
   get userInfo(){
     if(sessionStorage.length != 0) return true;
     return false;
   }
   
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
+    this.router.navigate(["/main"]);
+    this.firebaseService.isLoggedIn = false;
+    sessionStorage.clear();
+    alert("You have successfully logged out");
+  }
 
 }
