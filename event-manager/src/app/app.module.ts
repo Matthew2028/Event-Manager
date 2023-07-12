@@ -11,7 +11,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
-import { FirebaseService } from './services/firebase.service';
+import { FirebaseService } from './app/services/firebase.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

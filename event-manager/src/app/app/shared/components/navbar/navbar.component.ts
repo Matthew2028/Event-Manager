@@ -1,6 +1,6 @@
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { FirebaseService } from 'src/app/app/services/firebase.service';
 
 @Component({
   selector: 'app-navbar',
