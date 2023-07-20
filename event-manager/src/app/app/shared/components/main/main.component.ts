@@ -12,4 +12,9 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get userInfo(){
+    if(sessionStorage.length != 0) return true;
+    return false;
+  }
+  
 }

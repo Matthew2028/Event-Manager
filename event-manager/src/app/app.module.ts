@@ -30,6 +30,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { AuthService } from './app/auth/auth.service';
+import { AuthGuard } from './app/auth/auth.guard';
 
 
 
@@ -50,8 +52,6 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -62,7 +62,7 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatInputModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

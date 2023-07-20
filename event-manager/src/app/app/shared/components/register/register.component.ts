@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Firestore } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { collection } from '@firebase/firestore';
 import { FirebaseService } from 'src/app/app/services/firebase.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +12,6 @@ import { FirebaseService } from 'src/app/app/services/firebase.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  
 
   users: Array<{ email: string, password: string }> = [];
 
@@ -18,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   public isSignedIn = false;
 
-  constructor(public firebaseService : FirebaseService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private firestore: AngularFirestore, public firebaseService : FirebaseService, private router: Router, private formBuilder: FormBuilder) {
     this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -37,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.isSignedIn = false
   }
 
-  async onSignup(email:string,password:string){
+  async onSignup(uid:string, email:string,password:string){
     await this.firebaseService.signup(email,password)
     .then(() => {
       this.isSignedIn = true
@@ -63,6 +65,10 @@ export class RegisterComponent implements OnInit {
             break;
         }
       }
+    });
+    await this.firestore.collection('users').doc(uid).set({
+      email: email,
+      password: password
     });
   }
   async onSignin(email:string,password:string){
