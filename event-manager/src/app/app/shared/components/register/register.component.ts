@@ -66,6 +66,7 @@ export class RegisterComponent implements OnInit {
         }
       }
     });
+    //saving user to firestore
     await this.firestore.collection('users').doc(uid).set({
       email: email,
       password: password
